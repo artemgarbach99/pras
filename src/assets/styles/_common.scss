@@ -1,0 +1,169 @@
+h1,
+.h1 {
+	font-family: $fontFamily;
+	font-weight: 700;
+	font-size: rem(40);
+	line-height: math.div(45, 40);
+	@media (max-width: $mobile) {
+		font-size: rem(30);
+	}
+	@media (max-width: $mobileSmall) {
+		font-size: rem(20);
+	}
+	// margin-bottom: rem(15px);
+	// @media (max-width: $laptop) {
+	// 	font-size: rem(32px);
+	// }
+	// @media (max-width: $mobile) {
+	// 	font-size: rem(22);
+	// }
+}
+
+h2,
+.h2 {
+	font-family: $fontFamily;
+	font-weight: 700;
+	font-size: rem(36);
+	line-height: math.div(40, 36);
+	// margin-bottom: rem(15px);
+	// @media (max-width: $laptop) {
+	// 	font-size: rem(32px);
+	// }
+	@media (max-width: $mobile) {
+		font-size: rem(28);
+	}
+	@media (max-width: $mobileSmall) {
+		font-size: rem(20);
+	}
+}
+
+h3,
+.h3 {
+	font-family: $fontFamily;
+	font-size: rem(26);
+	line-height: math.div(32, 26);
+	font-weight: 700;
+	// margin-bottom: rem(15px);
+	// @media (max-width: $laptop) {
+	// 	font-size: rem(32px);
+	// }
+	@media (max-width: $mobile) {
+		font-size: rem(16);
+		line-height: math.div(20, 16);
+	}
+}
+
+h4,
+.h4 {
+	font-family: $fontFamily;
+	font-size: rem(18);
+	text-transform: uppercase;
+	color: $blackColor;
+	// margin-bottom: rem(15px);
+	// @media (max-width: $laptop) {
+	// 	font-size: rem(32px);
+	// }
+}
+
+// h2, .h2
+//   font-family: $fontUnbounded
+//   font-size: rem(40px)
+//   line-height: 1.3
+//   font-weight: 900
+//   margin-top: rem(25px)
+//   margin-bottom: rem(16px)
+//   @media (max-width: $laptop)
+//     font-size: rem(28px)
+//     line-height: 1.2
+//   @media (max-width: $bigTablet)
+//     font-size: rem(20px)
+//   @media (max-width: $mobile)
+//     font-size: rem(16px)
+//     line-height: 1.3
+//     margin-bottom: rem(15px)
+
+// h3, .h3
+//   font-family: $fontUnbounded
+//   font-weight: 900
+//   font-size: rem(24px)
+//   line-height: 1.3
+//   //text-transform: uppercase
+//   margin-top: rem(20px)
+//   margin-bottom: rem(15px)
+//   @media (max-width: $laptop)
+//     font-size: rem(20px)
+//   @media (max-width: $tablet)
+//     font-size: rem(16px)
+//   @media (max-width: $mobile)
+//     font-size: rem(14px)
+
+// h4, .h4
+//   font-family: $fontUnbounded
+//   font-weight: 500
+//   font-size: rem(20px)
+//   line-height: 1.1
+//   //text-transform: uppercase
+//   margin-top: rem(25px)
+//   margin-bottom: rem(16px)
+//   @media (max-width: $tablet)
+//     font-size: rem(14px)
+//   @media (max-width: $mobile)
+//     margin-bottom: rem(15px)
+
+// h5, .h5
+//   font-weight: 400
+//   font-size: rem(14px)
+//   line-height: 20px
+//   text-transform: uppercase
+//   margin-top: rem(25px)
+//   margin-bottom: rem(16px)
+//   @media (max-width: $tablet)
+//     font-size: rem(12px)
+//   @media (max-width: $mobile)
+//     margin-bottom: rem(15px)
+
+.text {
+	font-size: rem(20);
+	line-height: math.div(25, 20);
+	// color: $greyColor;
+	font-weight: 300;
+	@media (max-width: $tablet) {
+		font-size: rem(16);
+		line-height: math.div(20, 16);
+	}
+	@media (max-width: $mobile) {
+		font-size: rem(14);
+		line-height: math.div(18, 14);
+	}
+}
+
+.social {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem(24);
+	padding: rem(50) 0;
+	flex-wrap: wrap;
+	@media (max-width: $mobile) {
+		padding: rem(40) rem(35);
+		gap: rem(12);
+	}
+	// .social__item
+	&__item {
+	}
+	// .social__link
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(48);
+		height: rem(48);
+		background-color: $whiteColor;
+		border-radius: 100px;
+		overflow: hidden;
+		&::before {
+			font-size: rem(24);
+			color: $redColor;
+		}
+	}
+}

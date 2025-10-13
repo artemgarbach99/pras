@@ -1,0 +1,61 @@
+// @font-face {
+// 	font-family: icons;
+// 	font-display: swap;
+//   src: url('../fonts/icons.woff') format('woff');
+// 	// src: url('../fonts/icons.woff') format('woff');
+// 	font-weight: 400;
+// 	font-style: normal;
+// }
+@font-face {
+	font-family: icons;
+	font-display: swap;
+	src:
+		url('/src/fonts/icons.woff2') format('woff2'),
+		url('/src/fonts/icons.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+[class*='_icon-']:before {
+	font-family: 'icons', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin iconOptions {
+	font-family: 'icons', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+._icon-vk:before {
+	content: '\e900';
+}
+._icon-x:before {
+	content: '\e901';
+}
+._icon-tiktok:before {
+	content: '\e902';
+}
+._icon-telegram:before {
+	content: '\e903';
+}
+._icon-youtube:before {
+	content: '\e904';
+}
+._icon-instagram:before {
+	content: '\e905';
+}
+._icon-facebook:before {
+	content: '\e906';
+}

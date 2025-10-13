@@ -1,0 +1,290 @@
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src:
+			url('../fonts/#{$file_name}.woff2') format('woff2'),
+			url('../fonts/#{$file_name}.woff') format('woff');
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+//Percent
+@function percent($px, $from) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+//REM
+@function rem($px) {
+	$result: math.div($px, 16) + rem;
+	@return $result;
+}
+//EM
+@function em($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+[class*='-ibg'] {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+//Адаптивное свойство
+
+//Currency
+@mixin currency($sym) {
+	&::after {
+		content: '#{$sym}';
+	}
+}
+
+// Grids
+@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
+}
+
+// Адаптивное свойство (clamp)
+// @mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
+// 	@if ($startSize==0) {
+// 		$startSize: 0.000001;
+// 	}
+// 	@if ($minSize==0) {
+// 		$minSize: 0.000001;
+// 	}
+
+// 	// Для calc();
+// 	$addSize: math.div($startSize - $minSize, 16);
+
+// 	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
+// 		$widthFrom: $maxWidth;
+// 	}
+
+// 	// Брейк-поинты в EM
+// 	$widthFromMedia: em($widthFrom);
+// 	$widthToMedia: em($widthTo);
+
+// 	// Формула плавающего значения
+// 	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+// 	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+// 	$yIntersection: -$widthTo * $slope + $minSize;
+// 	@if ($yIntersection==0) {
+// 		$yIntersection: 0.000001;
+// 	}
+// 	$flyValue: #{rem($yIntersection)}' + ' #{$slope * 100}vw;
+
+// 	// Получение значения свойства
+// 	$propertyValue: #{'clamp(' rem($minSize) ',' $flyValue ',' rem($startSize) ')'};
+// 	// Если отрицательные значения
+// 	@if ($minSize > $startSize) {
+// 		$propertyValue: #{'clamp(' rem($startSize) ',' $flyValue ',' rem($minSize) ')'};
+// 	}
+
+// 	// Если поддерживается clamp();
+// 	@supports (#{$property}: $propertyValue) {
+// 		#{$property}: $propertyValue;
+// 	}
+// 	// Если не поддерживается clamp();
+// 	@supports not (#{$property}: $propertyValue) {
+// 		#{$property}: calc(
+// 			#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)}
+// 		);
+// 	}
+
+// 	// Устанавливаем значения по умолчанию
+// 	@if $widthFrom != $containerWidth and $widthFrom != $maxWidth and $keepSize != 1 and $keepSize != 2 {
+// 		@media (min-width: $widthFromMedia) {
+// 			#{$property}: inherit;
+// 		}
+// 	}
+// 	@if $widthTo != $minWidth and $keepSize != 1 and $keepSize != 3 {
+// 		@media (max-width: $widthToMedia) {
+// 			#{$property}: inherit;
+// 		}
+// 	}
+// }
+
+@mixin scrollbar {
+	&::-webkit-scrollbar {
+		width: rem(10);
+	}
+	&::-webkit-scrollbar-track {
+		background-color: #f0f0f0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #cecece;
+		border-radius: 22px;
+		padding: rem(3);
+		margin: rem(3);
+	}
+	@media (max-width: $mobile) {
+		&::-webkit-scrollbar {
+			width: rem(8);
+		}
+	}
+}
+
+// @mixin sticker($bgc, $paddingFirst, $paddingSecond) {
+// 	// display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	align-self: flex-start;
+// 	gap: rem(3);
+// 	padding: $paddingFirst $paddingSecond;
+// 	background-color: $bgc;
+// 	color: $whiteColor;
+// 	font-size: rem(12);
+// 	line-height: 1;
+// 	flex: 0 0 rem(190);
+// 	width: rem(190);
+// 	@media (max-width: $mobile) {
+// 		flex: 0 0 rem(180);
+// 		width: rem(180);
+// 	}
+// 	@media (max-width: $mobileSmall) {
+// 		width: auto;
+// 		flex: auto;
+// 	}
+// }
+
+// @mixin green-btn($fz: rem(16), $paddingFirst, $paddingSecond) {
+// 	background-color: $greenColor;
+// 	font-size: $fz;
+// 	line-height: 1.2;
+// 	font-weight: 500;
+// 	color: $whiteColor;
+// 	padding: $paddingFirst $paddingSecond;
+// 	border-radius: 5px;
+// 	&:hover {
+// 		text-decoration-line: underline;
+// 	}
+// }
+
+// @mixin starTitle {
+// 	position: relative;
+// 	&::before {
+// 		position: absolute;
+// 		top: 0;
+// 		right: rem(-10);
+// 		color: $redColor;
+// 		font-size: rem(7);
+// 	}
+// }
+
+// @mixin validInput {
+// 	position: relative;
+// 	&._form-error {
+// 		padding-bottom: rem(22);
+// 		& input,
+// 		& textarea {
+// 			border: 1px solid $redColor;
+// 		}
+// 	}
+// 	& .form__error {
+// 		display: block;
+// 		position: absolute;
+// 		width: 100%;
+// 		bottom: 0;
+// 		left: 0;
+// 		color: $redColor;
+// 		font-size: rem(14);
+// 		line-height: math.div(18, 14);
+// 	}
+// }
+
+// @mixin sorting-input {
+// 	width: 100%;
+// 	& input {
+// 		height: rem(52);
+// 		border-radius: 5px;
+// 		border: 1px solid rgba(217, 217, 217, 1);
+// 		padding: rem(16);
+// 		@media (max-width: $pc) {
+// 			height: rem(48);
+// 			padding: rem(10);
+// 			font-size: rem(14);
+// 			&::placeholder {
+// 				font-size: rem(14);
+// 			}
+// 		}
+// 		@media (max-width: $tablet) {
+// 			height: rem(43);
+// 		}
+// 		@media (max-width: $mobileSmall) {
+// 			padding: rem(7);
+// 			font-size: rem(13);
+// 			&::placeholder {
+// 				font-size: rem(13);
+// 			}
+// 		}
+// 	}
+// }
+
+@mixin hoverOpacity($opacity: 0.7) {
+	opacity: 1;
+	transition: opacity 0.3s ease 0s;
+	&:hover {
+		opacity: $opacity;
+		transition: opacity 0.3s ease 0s;
+	}
+}
+
+@mixin hoverUnderline($color: $whiteColor) {
+	position: relative;
+	text-decoration: none;
+	padding-bottom: 2px;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: rem(1);
+		width: 0;
+		background-color: $color;
+		transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); // плавная ease-in-out
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+}
+
+@mixin button($bg, $color) {
+	font-size: rem(12);
+	font-weight: 500;
+	letter-spacing: 5%;
+	text-transform: uppercase;
+	background-color: $bg;
+	color: $color;
+	padding: rem(12) rem(52);
+	border-radius: 100px;
+}
+
+@mixin input {
+	width: 100%;
+	display: block;
+	padding-bottom: rem(10);
+	font-weight: 300;
+	font-size: rem(14);
+	line-height: math.div(17, 14);
+	color: $whiteColor;
+	letter-spacing: 2%;
+	background-color: transparent;
+	border-bottom: 1px solid rgba($whiteColor, 0.3);
+	&::placeholder {
+		font-size: rem(14);
+		font-weight: 300;
+		color: $whiteColor;
+	}
+}
