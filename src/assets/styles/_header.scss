@@ -77,10 +77,6 @@
 	transform: translate(-300%, 0);
 	transition: transform 0.5s ease 0s;
 	z-index: 5;
-	// @include scroll-bar;
-	// @media (max-width: $mobile) {
-	// 	padding: rem(120) 0 0;
-	// }
 
 	.menu-open & {
 		transform: translate(0, 0);
@@ -98,11 +94,6 @@
 	&__top {
 		display: flex;
 	}
-
-	// &__wrap {
-	// 	height: 100%;
-	// 	padding: rem(20px) rem(30px) rem(65px);
-	// }
 
 	&__menu {
 	}
@@ -153,21 +144,6 @@
 		align-items: center;
 		gap: rem(15px);
 		padding: rem(32px) 0;
-
-		// & a
-		//   color: #878787
-		//   font-size: rem(12px)
-		//   font-weight: 400
-		//   line-height: 18px
-		//   text-decoration-line: underline
-		//   max-width: rem(170px)
-
-		//   &:hover
-		//     text-decoration-line: none
-
-		// &::before
-		//   font-size: rem(30px)
-		//   color: #878787
 	}
 	// .burger-header__bottom
 	&__bottom {
@@ -179,7 +155,6 @@
 			flex-direction: column-reverse;
 			gap: rem(20);
 			padding-top: rem(30);
-			// align-items: center;
 		}
 	}
 	&__social {
@@ -187,18 +162,6 @@
 			padding: 0;
 		}
 	}
-
-	// &__links
-
-	// &__image
-	//   max-width: rem(640px)
-	//   width: 100%
-	//   & img
-	//     width: 100%
-	//     height: 100%
-	//     object-fit: cover
-	//   @media (max-width: $bigTablet)
-	//     display: none
 }
 .menu-burger {
 	display: flex;
@@ -217,6 +180,7 @@
 		color: $whiteColor;
 		letter-spacing: 5%;
 		text-transform: uppercase;
+		@include hoverUnderline;
 	}
 }
 .categories-burger {
@@ -231,6 +195,7 @@
 		font-size: rem(14);
 		font-weight: 500;
 		color: $whiteColor;
+		@include hoverUnderline;
 	}
 }
 .advertising-burger {
@@ -239,7 +204,6 @@
 	gap: rem(15);
 	@media (max-width: $tablet) {
 		flex-direction: row;
-		// align-items: center;
 	}
 	@media (max-width: $mobileSmall) {
 		justify-content: center;
@@ -255,6 +219,7 @@
 		font-size: rem(14);
 		font-weight: 300;
 		color: $whiteColor;
+		@include hoverUnderline;
 	}
 }
 .form-burger {
@@ -263,7 +228,6 @@
 	gap: rem(15);
 	@media (max-width: $tablet) {
 		width: 100%;
-		// align-items: center;
 	}
 	// .form-burger__label
 	&__label {
@@ -278,7 +242,6 @@
 		gap: rem(20);
 		@media (max-width: $tablet) {
 			width: 100%;
-			// justify-content: center;
 		}
 		@media (max-width: $mobileSmall) {
 			flex-direction: column;

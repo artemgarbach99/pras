@@ -65,6 +65,7 @@
 		letter-spacing: 5%;
 		text-transform: uppercase;
 		color: $whiteColor;
+		@include hoverUnderline;
 		@media (max-width: $tablet) {
 			font-size: rem(14);
 		}
@@ -81,6 +82,9 @@
 		& > span {
 			font-size: rem(16);
 			font-weight: 600;
+		}
+		& > a {
+			@include hoverUnderline;
 		}
 		@media (max-width: em(600)) {
 			text-align: center;

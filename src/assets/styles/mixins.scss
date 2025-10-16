@@ -37,7 +37,6 @@
 		object-fit: cover;
 	}
 }
-//Адаптивное свойство
 
 //Currency
 @mixin currency($sym) {
@@ -45,73 +44,6 @@
 		content: '#{$sym}';
 	}
 }
-
-// Grids
-@mixin gridCards($type: fit, $min: 280px, $max: 1fr, $gap: 30px) {
-	display: grid;
-	gap: $gap;
-	grid-template-columns: repeat(auto-#{$type}, minmax($min, $max));
-}
-
-// Адаптивное свойство (clamp)
-// @mixin adaptiveValue($property, $startSize, $minSize, $widthFrom: $containerWidth, $widthTo: $minWidth, $keepSize: 0) {
-// 	@if ($startSize==0) {
-// 		$startSize: 0.000001;
-// 	}
-// 	@if ($minSize==0) {
-// 		$minSize: 0.000001;
-// 	}
-
-// 	// Для calc();
-// 	$addSize: math.div($startSize - $minSize, 16);
-
-// 	@if ($widthFrom == $containerWidth and $maxWidthContainer == 0) {
-// 		$widthFrom: $maxWidth;
-// 	}
-
-// 	// Брейк-поинты в EM
-// 	$widthFromMedia: em($widthFrom);
-// 	$widthToMedia: em($widthTo);
-
-// 	// Формула плавающего значения
-// 	// Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-// 	$slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
-// 	$yIntersection: -$widthTo * $slope + $minSize;
-// 	@if ($yIntersection==0) {
-// 		$yIntersection: 0.000001;
-// 	}
-// 	$flyValue: #{rem($yIntersection)}' + ' #{$slope * 100}vw;
-
-// 	// Получение значения свойства
-// 	$propertyValue: #{'clamp(' rem($minSize) ',' $flyValue ',' rem($startSize) ')'};
-// 	// Если отрицательные значения
-// 	@if ($minSize > $startSize) {
-// 		$propertyValue: #{'clamp(' rem($startSize) ',' $flyValue ',' rem($minSize) ')'};
-// 	}
-
-// 	// Если поддерживается clamp();
-// 	@supports (#{$property}: $propertyValue) {
-// 		#{$property}: $propertyValue;
-// 	}
-// 	// Если не поддерживается clamp();
-// 	@supports not (#{$property}: $propertyValue) {
-// 		#{$property}: calc(
-// 			#{rem($minSize)} + #{$addSize} * (100vw - #{rem($widthTo)}) / #{math.div($widthFrom, 16) - math.div($widthTo, 16)}
-// 		);
-// 	}
-
-// 	// Устанавливаем значения по умолчанию
-// 	@if $widthFrom != $containerWidth and $widthFrom != $maxWidth and $keepSize != 1 and $keepSize != 2 {
-// 		@media (min-width: $widthFromMedia) {
-// 			#{$property}: inherit;
-// 		}
-// 	}
-// 	@if $widthTo != $minWidth and $keepSize != 1 and $keepSize != 3 {
-// 		@media (max-width: $widthToMedia) {
-// 			#{$property}: inherit;
-// 		}
-// 	}
-// }
 
 @mixin scrollbar {
 	&::-webkit-scrollbar {
@@ -133,102 +65,6 @@
 		}
 	}
 }
-
-// @mixin sticker($bgc, $paddingFirst, $paddingSecond) {
-// 	// display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	align-self: flex-start;
-// 	gap: rem(3);
-// 	padding: $paddingFirst $paddingSecond;
-// 	background-color: $bgc;
-// 	color: $whiteColor;
-// 	font-size: rem(12);
-// 	line-height: 1;
-// 	flex: 0 0 rem(190);
-// 	width: rem(190);
-// 	@media (max-width: $mobile) {
-// 		flex: 0 0 rem(180);
-// 		width: rem(180);
-// 	}
-// 	@media (max-width: $mobileSmall) {
-// 		width: auto;
-// 		flex: auto;
-// 	}
-// }
-
-// @mixin green-btn($fz: rem(16), $paddingFirst, $paddingSecond) {
-// 	background-color: $greenColor;
-// 	font-size: $fz;
-// 	line-height: 1.2;
-// 	font-weight: 500;
-// 	color: $whiteColor;
-// 	padding: $paddingFirst $paddingSecond;
-// 	border-radius: 5px;
-// 	&:hover {
-// 		text-decoration-line: underline;
-// 	}
-// }
-
-// @mixin starTitle {
-// 	position: relative;
-// 	&::before {
-// 		position: absolute;
-// 		top: 0;
-// 		right: rem(-10);
-// 		color: $redColor;
-// 		font-size: rem(7);
-// 	}
-// }
-
-// @mixin validInput {
-// 	position: relative;
-// 	&._form-error {
-// 		padding-bottom: rem(22);
-// 		& input,
-// 		& textarea {
-// 			border: 1px solid $redColor;
-// 		}
-// 	}
-// 	& .form__error {
-// 		display: block;
-// 		position: absolute;
-// 		width: 100%;
-// 		bottom: 0;
-// 		left: 0;
-// 		color: $redColor;
-// 		font-size: rem(14);
-// 		line-height: math.div(18, 14);
-// 	}
-// }
-
-// @mixin sorting-input {
-// 	width: 100%;
-// 	& input {
-// 		height: rem(52);
-// 		border-radius: 5px;
-// 		border: 1px solid rgba(217, 217, 217, 1);
-// 		padding: rem(16);
-// 		@media (max-width: $pc) {
-// 			height: rem(48);
-// 			padding: rem(10);
-// 			font-size: rem(14);
-// 			&::placeholder {
-// 				font-size: rem(14);
-// 			}
-// 		}
-// 		@media (max-width: $tablet) {
-// 			height: rem(43);
-// 		}
-// 		@media (max-width: $mobileSmall) {
-// 			padding: rem(7);
-// 			font-size: rem(13);
-// 			&::placeholder {
-// 				font-size: rem(13);
-// 			}
-// 		}
-// 	}
-// }
 
 @mixin hoverOpacity($opacity: 0.7) {
 	opacity: 1;
